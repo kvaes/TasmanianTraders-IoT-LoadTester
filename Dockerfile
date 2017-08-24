@@ -10,4 +10,3 @@ ENV eventHubsHubName your-eventhub-name
 ENV eventHubsKeyName your-eventhub-keyname
 ENV eventHubsKey your-eventhub-key
 
-CMD [ "/usr/scr/app/run.sh" ]
