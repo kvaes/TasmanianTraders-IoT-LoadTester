@@ -9,6 +9,6 @@ ENV eventHubsHubName your-eventhub-name
 ENV eventHubsKeyName your-eventhub-keyname
 ENV eventHubsKey your-eventhub-key
 
-CHMOD 755 run.sh
+RUN chmod + /run.sh
 
 CMD [ "./run.sh" ]
