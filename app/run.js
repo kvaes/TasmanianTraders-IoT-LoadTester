@@ -2,8 +2,6 @@ var Q = require("q");
 var eventHubs = require('eventhubs-js');
 const uuidv4 = require('uuid/v4');
 
-console.log(process.env.HOME);
-
 eventHubs.init({
     hubNamespace: process.env.eventHubsNamespace,
     hubName: process.env.eventHubsHubName,

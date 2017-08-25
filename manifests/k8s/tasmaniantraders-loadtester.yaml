@@ -1,0 +1,41 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tasmaniantraders-iot-loadtester
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: tasmaniantraders-iot-loadtester
+    spec:
+      containers:
+      - name: tasmaniantraders-iot-loadtester
+        image: kvaes/tasmaniantraders-iot-loadtester
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        imagePullPolicy: Always
+        env:
+        - name: eventHubsNamespace
+          value: kvaestestnamespace
+        - name: eventHubsHubName
+          value: kvaestesthub
+        - name: eventHubsKeyName
+          value: kvaestestpolicy 
+        - name: eventHubsKey
+          value: kvaestestsecretkey
